@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import googleIcon from "../../assets/icons/google.png";
 import githubIcon from "../../assets/icons/github.png";
+import { authContext } from "../../context/AuthProvider";
 
 const Register = () => {
+  const { registerUser, addUserInfo } = useContext(authContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const name = form.name.value;
+    const imageUrl = form.photoUrl.value;
+
+    registerUser(email, password)
+      .then((result) => {
+        const newUser = result.user;
+        addUserInfo(name, imageUrl);
+        console.log(newUser);
+      })
+      .catch((err) => console.error(err));
+  };
+
   return (
     <div>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col">
-          <div className="card flex-shrink-0 w-full lg:w-[500px] max-w-sm  shadow-sm border-l-2 border-l-black rounded-none">
+          <form
+            onSubmit={handleRegister}
+            className="card flex-shrink-0 w-full lg:w-[500px] max-w-sm  shadow-sm border-l-2 border-l-black rounded-none"
+          >
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -85,7 +108,7 @@ const Register = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
