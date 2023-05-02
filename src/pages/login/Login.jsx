@@ -1,24 +1,29 @@
 import React, { useContext, useState } from "react";
 import googleIcon from "../../assets/icons/google.png";
 import githubIcon from "../../assets/icons/github.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../context/AuthProvider";
 
 const Login = () => {
   const { loginUser,googleSignIn,githubSignIn } = useContext(authContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/';
 
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    
 
     loginUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setError("");
+        navigate(from, {replace: true})
       })
       .catch((err) => {
         const errMsg = err.message;
@@ -30,6 +35,7 @@ const Login = () => {
     googleSignIn()
     .then(user =>{
       setError('')
+      navigate(from, {replace: true})
     })
     .catch(err =>{
       setError(err.message)
@@ -40,6 +46,7 @@ const Login = () => {
     githubSignIn()
     .then(user =>{
       setError('')
+      navigate(from, {replace: true})
     })
     .catch(err =>{
       setError(err.message)

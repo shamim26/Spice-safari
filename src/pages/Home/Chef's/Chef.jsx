@@ -14,7 +14,7 @@ const Chef = ({ chef }) => {
   };
 
   return (
-    <LazyLoad height={500} offset={100} width={400} threshold={0.7}>
+    <LazyLoad height={500} offset={100} width={400} threshold={0.6}>
       <div>
         {!loaded && <CardSkeleton />}
         <div
