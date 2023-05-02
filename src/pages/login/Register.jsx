@@ -88,7 +88,7 @@ const Register = () => {
                   required
                 />
                 <small className="text-error">{check}</small>
-                <label className="label pb-2">
+                <label className="label flex-col md:flex-row pb-2">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
