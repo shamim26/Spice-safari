@@ -22,15 +22,15 @@ const Home = () => {
         </div>
       </div>
       <div className="container w-4/5 mx-auto my-20">
+        <h1 className="font-custom font-bold text-4xl underline text-center mb-10 uppercase">
+          Our Chef's
+        </h1>
 
-      <h1 className="font-custom font-bold text-4xl underline text-center mb-10">Our Chef's</h1>
-
-      <div className="grid gap-0 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {data.map((chef) => (
-          <Chef key={chef.chefId} chef={chef}></Chef>
-        ))}
-      </div>
-        
+        <div className="grid gap-0 lg:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {data.map((chef) => (
+            <Chef key={chef.chefId} chef={chef}></Chef>
+          ))}
+        </div>
       </div>
     </div>
   );
