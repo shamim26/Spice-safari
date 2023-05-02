@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import LazyLoad from "react-lazy-load";
 import CardSkeleton from "../../../components/CardSkeleton/CardSkeleton";
+import { Link } from "react-router-dom";
 
 const Chef = ({ chef }) => {
-  console.log(chef);
   const { name, chefId, likes, numberOfRecipes, yearsOfExperience, picture } =
     chef;
 
@@ -32,7 +32,7 @@ const Chef = ({ chef }) => {
           </figure>
           <div className="card-body p-6">
             <h2 className="card-title">{name}</h2>
-            <div className="border-t border-black flex justify-center justify-items-center gap-5 my-3">
+            <div className="border-t text-gray-500 border-gray-500 font-medium flex justify-center justify-items-center gap-5 my-3">
               <p className="border-r border-black p-1">
                 {yearsOfExperience}+{" "}
                 <small>
@@ -48,9 +48,9 @@ const Chef = ({ chef }) => {
             </div>
 
             <div className="card-actions justify-items-stretch">
-              <button className="bg-primary font-semibold text-white mx-auto w-full rounded-none py-2 hover:bg-rose-950 duration-300 uppercase">
+              <Link to={`chef-recipe/${chefId}`} className="bg-primary font-semibold text-white text-center mx-auto w-full rounded-none py-2 hover:bg-rose-950 duration-300 uppercase">
                 View Recipe
-              </button>
+              </Link>
             </div>
           </div>
         </div>
