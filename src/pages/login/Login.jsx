@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { authContext } from "../../context/AuthProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(authContext);
+  const { loginUser,googleSignIn,githubSignIn } = useContext(authContext);
   const [error, setError] = useState("");
 
   const handleLogin = (e) => {
@@ -25,6 +25,27 @@ const Login = () => {
         setError(errMsg);
       });
   };
+
+  const handleGoogleSignIn = () =>{
+    googleSignIn()
+    .then(user =>{
+      setError('')
+    })
+    .catch(err =>{
+      setError(err.message)
+    })
+  }
+
+  const handleGithubSignIn = () =>{
+    githubSignIn()
+    .then(user =>{
+      setError('')
+    })
+    .catch(err =>{
+      setError(err.message)
+    })
+  }
+
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col">
@@ -73,13 +94,13 @@ const Login = () => {
             </div>
             <div className="border-b border-b-black my-1"></div>
             <div className="form-control mt-1">
-              <button className=" border border-black hover:border-transparent hover:bg-blue-800 hover:text-white font-semibold flex items-center justify-center rounded-none  transition-all ease duration-300">
+              <button onClick={handleGoogleSignIn} className=" border border-black hover:border-transparent hover:bg-blue-800 hover:text-white font-semibold flex items-center justify-center rounded-none  transition-all ease duration-300">
                 <img className="w-[20px] mr-2 my-2" src={googleIcon} alt="" />
                 Sign In With Google
               </button>
             </div>
             <div className="form-control mt-1">
-              <button className=" border border-black hover:border-transparent hover:bg-neutral hover:text-white font-semibold flex items-center justify-center rounded-none  transition-all ">
+              <button onClick={handleGithubSignIn} className=" border border-black hover:border-transparent hover:bg-neutral hover:text-white font-semibold flex items-center justify-center rounded-none  transition-all ">
                 <img className="w-[20px] mr-2 my-2" src={githubIcon} alt="" />
                 Sign In With GitHub
               </button>
