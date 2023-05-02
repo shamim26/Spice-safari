@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import googleIcon from "../../assets/icons/google.png";
 import githubIcon from "../../assets/icons/github.png";
 import { Link } from "react-router-dom";
+import { authContext } from "../../context/AuthProvider";
 
 const Login = () => {
+  const { loginUser } = useContext(authContext);
+  const [error, setError] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    loginUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setError("");
+      })
+      .catch((err) => {
+        const errMsg = err.message;
+        setError(errMsg);
+      });
+  };
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col">
-        <div className="card flex-shrink-0 w-full lg:w-[500px] max-w-sm  shadow-sm border-l-2 border-l-black rounded-none">
+        <form
+          onSubmit={handleLogin}
+          className="card flex-shrink-0 w-full lg:w-[500px] max-w-sm  shadow-sm border-l-2 border-l-black rounded-none"
+        >
           <div className="card-body">
             <div className="form-control">
               <label className="label">
@@ -32,6 +56,7 @@ const Login = () => {
                 className="input input-bordered rounded-none"
                 required
               />
+              <small className="text-error">{error}</small>
               <label className="label pb-2">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
@@ -60,7 +85,7 @@ const Login = () => {
               </button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import googleIcon from "../../assets/icons/google.png";
 import githubIcon from "../../assets/icons/github.png";
@@ -6,6 +6,7 @@ import { authContext } from "../../context/AuthProvider";
 
 const Register = () => {
   const { registerUser, addUserInfo } = useContext(authContext);
+  const [check, setCheck] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -15,11 +16,17 @@ const Register = () => {
     const name = form.name.value;
     const imageUrl = form.photoUrl.value;
 
+    if (!/.{6,}/.test(password)) {
+      setCheck("Password should be at least 6 character, Or more!");
+      return;
+    }
+
     registerUser(email, password)
       .then((result) => {
         const newUser = result.user;
         addUserInfo(name, imageUrl);
         console.log(newUser);
+        setCheck("");
       })
       .catch((err) => console.error(err));
   };
@@ -80,6 +87,7 @@ const Register = () => {
                   className="input input-bordered rounded-none"
                   required
                 />
+                <small className="text-error">{check}</small>
                 <label className="label pb-2">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
