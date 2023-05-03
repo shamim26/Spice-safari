@@ -8,7 +8,6 @@ import SingleRecipe from "./SingleRecipe";
 
 const ChefRecipe = () => {
   const data = useLoaderData();
-  console.log(data);
   const {
     bio,
     name,
@@ -18,7 +17,6 @@ const ChefRecipe = () => {
     recipes,
     likes,
   } = data;
-  console.log(recipes[0].recipe_id);
   return (
     <div>
       <div className="banner flex gap-10 w-9/12 mx-auto pt-28 mb-28">

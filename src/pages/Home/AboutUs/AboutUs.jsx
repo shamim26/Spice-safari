@@ -5,7 +5,7 @@ import aboutImg2 from "../../../assets/about-chef2.jpg";
 const AboutUs = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-28 items-center text-center">
-      <div className="md:flex gap-8">
+      <div className="flex flex-col md:flex-row gap-8">
         <img className="w-[300px] h-[420px]" src={aboutImg} alt="" />
         <img className="w-[300px] h-[420px]" src={aboutImg2} alt="" />
       </div>

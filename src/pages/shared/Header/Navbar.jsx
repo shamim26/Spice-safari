@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { authContext } from "../../../context/AuthProvider";
-import logo from '../../../assets/logo.png'
+import logo from "../../../assets/logo.png";
+import ActiveNav from "../../../components/ActiveNav/ActiveNav";
 
 const Navbar = () => {
   const { user, logOut } = useContext(authContext);
@@ -12,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 fixed z-10 lg:px-20 lg:py-4">
+    <div className="navbar bg-base-100 bg-opacity-70 fixed z-10 lg:px-20 lg:py-4">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,10 +37,24 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <ActiveNav className="font-semibold uppercase" to="/">
+                Home
+              </ActiveNav>
             </li>
             <li>
-              <a>Item </a>
+              <ActiveNav className="font-semibold uppercase" to="/menu">
+                Menu
+              </ActiveNav>
+            </li>
+            <li>
+              <ActiveNav className="font-semibold uppercase" to="/contact">
+                Contact
+              </ActiveNav>
+            </li>
+            <li>
+              <ActiveNav className="font-semibold uppercase" to="/blogs">
+                Blog
+              </ActiveNav>
             </li>
           </ul>
         </div>
@@ -56,24 +71,24 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link className="font-semibold uppercase" to="/">
+            <ActiveNav className="font-semibold uppercase" to="/">
               Home
-            </Link>
+            </ActiveNav>
           </li>
           <li>
-            <Link className="font-semibold uppercase" to="/menu">
+            <ActiveNav className="font-semibold uppercase" to="/menu">
               Menu
-            </Link>
+            </ActiveNav>
           </li>
           <li>
-            <Link className="font-semibold uppercase" to="/contact">
+            <ActiveNav className="font-semibold uppercase" to="/contact">
               Contact
-            </Link>
+            </ActiveNav>
           </li>
           <li>
-            <Link className="font-semibold uppercase" to="/blogs">
+            <ActiveNav className="font-semibold uppercase" to="/blogs">
               Blog
-            </Link>
+            </ActiveNav>
           </li>
         </ul>
       </div>

@@ -12,7 +12,7 @@ const SingleRecipe = ({ recipe }) => {
     return toast.success('Favorite Recipe')
   };
   return (
-    <div className="card lg:card-side bg-base-100 shadow-lg rounded-none transition-all duration-200 ease-in hover:shadow-2xl hover:-translate-y-1 mb-16">
+    <div className="card lg:card-side bg-base-100 shadow-lg rounded-none transition-all duration-200 ease-in hover:shadow-2xl mb-16">
       <figure className="">
         <img className="h-[400px] w-[600px]" src={recipe_image} alt="Recipe" />
       </figure>
