@@ -4,6 +4,8 @@ import Chef from "../Chef's/Chef";
 import { useLoaderData } from "react-router-dom";
 import AboutUs from "../AboutUs/AboutUs";
 import Brand from "../Brand/Brand";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PDF from "../../../components/PDF/PDF";
 
 const Home = () => {
   const data = useLoaderData();
@@ -44,6 +46,9 @@ const Home = () => {
       <div className="bg-[#dfebf0] my-36">
         <Brand />
       </div>
+      <PDFDownloadLink document={<PDF />} fileName="blog">
+          {({loading}) =>loading?<button>Loading..</button>:<button>Download</button>}
+        </PDFDownloadLink>
     </div>
   );
 };

@@ -71,7 +71,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link className="font-semibold uppercase" to="/blog">
+            <Link className="font-semibold uppercase" to="/blogs">
               Blog
             </Link>
           </li>
