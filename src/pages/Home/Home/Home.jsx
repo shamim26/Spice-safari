@@ -9,6 +9,7 @@ const Home = () => {
   const data = useLoaderData();
   return (
     <div>
+      {/* Home Banner  */}
       <div
         className="banner bg-no-repeat h-screen bg-cover bg-gray-500 bg-blend-multiply"
         style={{ backgroundImage: `url("${banner}")` }}
@@ -23,6 +24,7 @@ const Home = () => {
           </button>
         </div>
       </div>
+      {/* Home Cards */}
       <div className="container w-4/5 mx-auto my-36">
         <h1 className="font-custom font-bold text-4xl underline text-center mb-20 uppercase">
           Our Chef's
@@ -34,10 +36,12 @@ const Home = () => {
           ))}
         </div>
       </div>
+      {/* About Us  */}
       <div className="container w-4/5 mx-auto my-36">
         <AboutUs />
       </div>
-      <div className="bg-blue-100 my-36">
+      {/* Restaurant brand */}
+      <div className="bg-[#dfebf0] my-36">
         <Brand />
       </div>
     </div>
