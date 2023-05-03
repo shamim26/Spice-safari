@@ -3,6 +3,7 @@ import banner from "../../../assets/banner.jpg";
 import Chef from "../Chef's/Chef";
 import { useLoaderData } from "react-router-dom";
 import AboutUs from "../AboutUs/AboutUs";
+import Brand from "../Brand/Brand";
 
 const Home = () => {
   const data = useLoaderData();
@@ -34,7 +35,10 @@ const Home = () => {
         </div>
       </div>
       <div className="container w-4/5 mx-auto my-36">
-        <AboutUs/>
+        <AboutUs />
+      </div>
+      <div className="bg-blue-100 my-36">
+        <Brand />
       </div>
     </div>
   );
