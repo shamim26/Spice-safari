@@ -85,7 +85,7 @@ const Login = () => {
                 required
               />
               <small className="text-error">{error}</small>
-              <label className="label pb-2">
+              <label className="label flex md:flex-row flex-col pb-2">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
                 </a>

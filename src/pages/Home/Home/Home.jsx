@@ -19,7 +19,7 @@ const Home = () => {
   
   if (isLoading || navi.state === 'loading') {
     return (
-      <div className="pt-40 flex justify-center">
+      <div className="py-40 flex justify-center">
         <ColorRing
           visible={true}
           height="80"
@@ -50,7 +50,7 @@ const Home = () => {
         </div>
       </div>
       {/* Home Cards */}
-      <div className="container  md:w-4/5 mx-auto my-36">
+      <div className="container w-11/12 md:w-4/5 mx-auto my-36">
         <h1 className="font-custom font-bold text-4xl underline text-center mb-20 uppercase">
           Our Chef's
         </h1>

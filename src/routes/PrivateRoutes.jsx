@@ -9,7 +9,7 @@ const PrivateRoutes = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="pt-48 flex justify-center">
+      <div className="py-48 flex justify-center">
         <ColorRing
           visible={true}
           height="80"

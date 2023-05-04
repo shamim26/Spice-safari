@@ -14,11 +14,11 @@ const Chef = ({ chef }) => {
   };
 
   return (
-    <LazyLoad height={500} offset={100} width={400} threshold={0.6}>
+    <LazyLoad height={500} threshold={0.6}>
       <div>
         {!loaded && <CardSkeleton />}
         <div
-          className={`card w-96 h-full hover:shadow-2xl transition-all bg-base-100 shadow-md rounded-none hover:-translate-y-1  ${
+          className={`card md:w-96 h-full hover:shadow-2xl transition-all bg-base-100 shadow-md rounded-none hover:-translate-y-1  ${
             loaded ? "opacity-100" : "opacity-0"
           } duration-300`}
         >

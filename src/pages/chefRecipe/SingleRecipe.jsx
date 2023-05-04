@@ -1,7 +1,8 @@
 import React from "react";
 import Rating from "react-rating";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import LazyLoad from "react-lazy-load";
 
 const SingleRecipe = ({ recipe }) => {
   const { cooking_method, ingredients, rating, recipe_image, recipe_name } =
@@ -9,13 +10,20 @@ const SingleRecipe = ({ recipe }) => {
 
   const handleFavorite = (e) => {
     e.target.classList.add("btn-disabled");
-    return toast.success('Favorite Recipe')
+    return toast.success("Favorite Recipe");
   };
   return (
     <div className="card lg:card-side bg-base-100 shadow-lg rounded-none transition-all duration-200 ease-in hover:shadow-2xl mb-16">
       <figure className="">
-        <img className="h-[400px] w-[600px]" src={recipe_image} alt="Recipe" />
+        <LazyLoad height={400} threshold={0.5}>
+          <img
+            className="h-[400px] w-[600px]"
+            src={recipe_image}
+            alt="Recipe"
+          />
+        </LazyLoad>
       </figure>
+
       <div className="card-body w-[800px] pl-7 pb-3 pr-3 pt-1">
         <h2 className="card-title font-custom">{recipe_name}</h2>
         <h3 className="font-semibold text-lg underline mt-2">Cooking Method</h3>
