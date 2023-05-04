@@ -51,7 +51,7 @@ const Blog = () => {
           </p>
         </div>
       <div>
-        <ReactToPdf targetRef={ref} filename="code-example.pdf">
+        <ReactToPdf targetRef={ref} filename="Blog.pdf">
           {({ toPdf }) => <button className="btn bg-transparent text-black" onClick={toPdf}>Print</button>}
         </ReactToPdf>
       </div>
