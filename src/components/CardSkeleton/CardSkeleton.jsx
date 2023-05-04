@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const CardSkeleton = () => {
-    return (
-        <div className="card w-96 bg-base-100 shadow-md rounded-none">
+  return (
+    <div className="card md:w-96 bg-base-100 shadow-md rounded-none">
       <figure>
         <div className="skeleton-img bg-gray-500 animate-pulse h-[288px]" />
       </figure>
@@ -15,7 +15,7 @@ const CardSkeleton = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default CardSkeleton;
